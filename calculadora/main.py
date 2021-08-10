@@ -20,7 +20,8 @@ class Aplicacion:
         label_1.place(x=150, y=130)
         label_1.config(bg="peachpuff", relief="groove")
 
-        label_2 = Label(frame, text="Hecho por Luis Alejandro Alfaro").place(x=355, y=348) 
+        label_2 = Label(frame, text="Hecho por Luis Alejandro Alfaro")
+        label_2.place(x=355, y=348) 
         
 
 
