@@ -1,6 +1,6 @@
 from tkinter import *
 
-class Aplicacion:
+class Aplicacion_menu:
     def __init__(self):
         pass
     
@@ -11,19 +11,23 @@ class Aplicacion:
         root.resizable(0,0)
 
         # FramePrincipal
-        frame = Frame(root, width=580, height=420)
+        frame = Frame(root, width=420, height=580)
         frame.pack()
         frame.config(cursor="plus", bg="peachpuff", bd=25, relief="groove")
 
+        #Entry
+        pantalla = Entry(frame, width=40)
+        pantalla.place(x=75, y=50)
+        pantalla.config(bg="peachpuff", justify="center", state="disabled")
+ 
+
         #Etiquetas
-        label_1 = Label(frame, text="Bienvenido a la calculadora de polinomios")
-        label_1.place(x=150, y=130)
+        label_1 = Label(frame, text="Bienvenido a la calculadora PYTHON")
+        label_1.place(x=90, y=505)
         label_1.config(bg="peachpuff", relief="groove")
 
-        label_2 = Label(frame, text="Hecho por Luis Alejandro Alfaro")
-        label_2.place(x=355, y=348) 
+        #Botones
         
-
 
 
 
@@ -36,7 +40,7 @@ class Aplicacion:
 
 
 if __name__ == '__main__':
-    calculadora = Aplicacion()
+    calculadora = Aplicacion_menu()
     calculadora.menu_inicio()
     
 
