@@ -4,10 +4,11 @@ from math import *
 
 
 class Aplicacion_menu:
-    def __init__(self, n_1="", r="", texto=Entry ):
+    def __init__(self, n_1="", text=Entry, i=0 ):
+
         self.n_1 = n_1
-        self.r = r
-        self.texto = texto
+        self.text = text
+        self.i = i
 
      # Raiz
         root = Tk()
@@ -20,9 +21,9 @@ class Aplicacion_menu:
         frame.config(cursor="plus", bg="gray20", bd=25)
 
         #Entry
-        texto = Entry(frame, width=40, textvariable=self.r)
-        texto.place(x=65, y=50)
-        texto.config(bg="peachpuff", justify="center", state="disabled", relief="sunken")
+        self.text = Entry(frame, width=40)
+        self.text.place(x=65, y=50)
+        self.text.config(bg="peachpuff", justify="center", relief="sunken")
  
 
         #Etiquetas
@@ -52,9 +53,9 @@ class Aplicacion_menu:
         button_ce.config(bg="red")
 
 
-        button_c = Button(frame, text= "C", width=3, height=1)
-        button_c.place(x=220, y=100)
-        button_c.config(bg="red")
+        button_delete = Button(frame, text= "Delete", width=5, height=1, command=lambda:self.clear())
+        button_delete.place(x=220, y=100)
+        button_delete.config(bg="red")
 
 
         button_4 = Button(frame, text= 4, width=2, height=1, command=lambda: self.click_num(4))
@@ -105,18 +106,29 @@ class Aplicacion_menu:
         button_rest.place(x=210, y=160)
         button_rest.config(bg="gray50")
 
-        button_equal = Button(frame, text= "=", width=3, height=1)
+        button_equal = Button(frame, text= "=", width=3, height=1, command=lambda:self.operation())
         button_equal.place(x=240, y=160)
         button_equal.config(bg="red")
 
         root.mainloop()
         
     def click_num(self, n_1):
-        self.texto.insert(0, str(n_1))
+        self.text.insert(self.i, n_1)
+        self.i += 1
+      
 
+    def clear(self):
+        self.text.delete(0, END)
+        i = 0
 
+    def operation(self):
 
-       
+        ecuation = self.text.get()
+        result = eval(ecuation)
+
+        self.text.delete(0, END)
+        i = 0
+        self.text.insert(i, result)
 
 
 
